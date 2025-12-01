@@ -1,0 +1,58 @@
+<template>
+    <div class="slds-p-around_medium slds-card">
+        <h2 class="slds-text-heading_small slds-m-bottom_small">Calculadora Simples</h2>
+
+        <div class="slds-grid slds-gutters slds-m-bottom_small">
+            <div class="slds-col">
+                <lightning-input
+                    type="number"
+                    name="numero1"
+                    label="Número 1"
+                    value={numero1}
+                    onchange={handleChangeNumero1}
+                ></lightning-input>
+            </div>
+            <div class="slds-col">
+                <lightning-input
+                    type="number"
+                    name="numero2"
+                    label="Número 2"
+                    value={numero2}
+                    onchange={handleChangeNumero2}
+                ></lightning-input>
+            </div>
+        </div>
+
+        <div class="slds-button-group" role="group">
+            <lightning-button
+                variant="brand"
+                label="Adição (+)"
+                onclick={handleAdicionar}
+            ></lightning-button>
+            <lightning-button
+                variant="neutral"
+                label="Subtração (-)"
+                onclick={handleSubtrair}
+            ></lightning-button>
+            <lightning-button
+                variant="neutral"
+                label="Multiplicação (×)"
+                onclick={handleMultiplicar}
+            ></lightning-button>
+            <lightning-button
+                variant="destructive-text"
+                label="Divisão (÷)"
+                onclick={handleDividir}
+            ></lightning-button>
+        </div>
+
+        <template if:true={mensagemErro}>
+            <div class="slds-text-color_error slds-m-top_small">{mensagemErro}</div>
+        </template>
+
+        <div class="slds-m-top_medium">
+            <span class="slds-text-title_bold">Resultado: </span>
+            <span>{resultado}</span>
+        </div>
+    </div>
+</template>
